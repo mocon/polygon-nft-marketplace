@@ -1,4 +1,8 @@
 require('@nomiclabs/hardhat-waffle')
+const fs = require('fs')
+
+const metamaskPrivateKey = fs.readFileSync('.metamask_pk').toString().trim()
+const infuraId = fs.readFileSync('.infura_id').toString().trim()
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -22,12 +26,12 @@ module.exports = {
       chainId: 1337,
     },
     mumbai: {
-      url: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      accounts: [process.env.METAMASK_PRIVATE_KEY],
+      url: `https://polygon-mumbai.infura.io/v3/${infuraId}`,
+      accounts: [metamaskPrivateKey],
     },
     mainnet: {
-      url: `https://polygon-mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      accounts: [process.env.METAMASK_PRIVATE_KEY],
+      url: `https://polygon-mainnet.infura.io/v3/${infuraId}`,
+      accounts: [metamaskPrivateKey],
     },
   },
   solidity: '0.8.4',
