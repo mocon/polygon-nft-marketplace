@@ -1,12 +1,18 @@
 # Polygon NFT Marketplace
 
-https://docs.polygon.technology/docs/develop/network-details/network
+See https://docs.polygon.technology/docs/develop/network-details/network.
 
-## Basic Sample Hardhat Project
+## Run frontend locally
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+Run Next app on http://localhost:3000:
 
-Try running some of the following tasks:
+```shell
+yarn dev
+```
+
+## Hardhat
+
+Use the following commands to work with smart contracts:
 
 ```shell
 npx hardhat accounts
@@ -14,6 +20,6 @@ npx hardhat compile
 npx hardhat clean
 npx hardhat test
 npx hardhat node
-node scripts/sample-script.js
+npx hardhat run scripts/deploy.js --network localhost
 npx hardhat help
 ```
