@@ -1,14 +1,14 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
-import type { NextPage } from 'next'
-import type { MarketItem, NftData } from 'types'
+
 import { nftMarketAddress, nftAddress } from 'config'
 import Market from 'artifacts/contracts/Market.sol/NFTMarket.json'
 import NFT from 'artifacts/contracts/NFT.sol/NFT.json'
+import type { NextPage } from 'next'
+import type { MarketItem, NftData } from 'types'
 
 const Home: NextPage = () => {
   const [nfts, setNfts] = useState<NftData[]>([])
@@ -72,9 +72,9 @@ const Home: NextPage = () => {
       <div className='flex justify-center'>
         <div className='px-4' style={{ maxWidth: 1600 }}>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4'>
-            {nfts.map((nft, i) => (
-              <div key={i} className='border shadow rounded-xl overflow-hidden'>
-                <Image src={nft.image} alt={nft.name} />
+            {nfts.map((nft) => (
+              <div key={nft.tokenId} className='border shadow rounded-xl overflow-hidden'>
+                <img src={nft.image} alt={nft.name} />
                 <div className='p-4'>
                   <p style={{ height: 64 }} className='text-2xl font-semibold'>
                     {nft.name}

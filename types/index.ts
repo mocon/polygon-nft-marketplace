@@ -17,3 +17,9 @@ export type NftData = {
   name: string
   description: string
 }
+
+export type FormInput = {
+  name: string
+  description: string
+  price: string
+}
